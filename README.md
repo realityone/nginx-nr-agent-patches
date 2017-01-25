@@ -8,7 +8,7 @@ Some patches for nginx-nr-agent.
 2. Apply the latest patch.
 
     ```bash
-    $ patch /usr/bin/nginx-nr-agent.py < patch_0.1.diff
+    $ patch /usr/bin/nginx-nr-agent.py < patch_2.0.0-10.diff
     ```
 
 3. Follow the configuration to edit your agent config file.
@@ -17,7 +17,7 @@ Some patches for nginx-nr-agent.
 
 ## Changelog
 
-- 2017.1.25 - Fix agent stuck with bad network connection.
+- 2017.1.25(2.0.0-10) - Fix agent stuck with bad network connection.
 
     With this patch, you can specify collectors' timeout and NewRelic push client's timeout. The origin version from NGINX may be will stuck forever with bad network connection.
 
