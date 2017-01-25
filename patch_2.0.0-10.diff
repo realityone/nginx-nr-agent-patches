@@ -1,5 +1,5 @@
 diff --git a/usr/bin/nginx-nr-agent.py b/usr/bin/nginx-nr-agent.py
-index a2553fe..b7f9a3e 100755
+index a2553fe..2b1e818 100755
 --- a/usr/bin/nginx-nr-agent.py
 +++ b/usr/bin/nginx-nr-agent.py
 @@ -4,14 +4,19 @@
@@ -920,9 +920,9 @@ index a2553fe..b7f9a3e 100755
 +                continue
 +            if not config.has_option(s, 'name') or not config.has_option(s, 'url'):
 +                continue
-+            collector_timeout = config.get(s, 'collector_timeout')
-+            if collector_timeout:
-+                collector_timeout = float(collector_timeout)
++            collector_timeout = None
++            if config.has_option(s, 'collector_timeout'):
++                collector_timeout = float(config.get(s, 'collector_timeout'))
 +            ns = NginxStatusCollector(s, config.get(s, 'name'), config.get(s, 'url'), self.poll_interval, collector_timeout=collector_timeout)
 +            if config.has_option(s, 'http_user') and config.has_option(s, 'http_pass'):
 +                ns.basic_auth = base64.b64encode(config.get(s, 'http_user') + b':' + config.get(s, 'http_pass'))
